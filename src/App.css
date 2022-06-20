@@ -63,3 +63,12 @@ img{
 .load-more button{
   padding: 5px 10px 5px 10px;
 }
+nav ul{
+  display: flex;
+  list-style: none;
+  
+}
+nav ul li{
+  padding-right: 5px;
+  font-size: 16px;
+}

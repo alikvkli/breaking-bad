@@ -1,5 +1,5 @@
-import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 import { getCharacters } from '../redux/services';
 import Loading from '../components/Loading';
 import Error from '../components/Error';
@@ -18,7 +18,7 @@ const Home = () => {
         if(status === 'idle'){
             dispatch(getCharacters());
         }
-    }, [dispatch, status]);
+    },[dispatch,status])
 
     if (status === "loading") {
         return <Loading />;

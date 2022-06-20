@@ -1,9 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getCharacters } from "./services";
+import { getCharacterById, getCharacters } from "./services";
 export const charactersSlice = createSlice({
     name: "characters",
     initialState: {
         items: [],
+        currentCharacter: [],
         status: "idle",
         error: null,
         page: 0,
@@ -26,6 +27,10 @@ export const charactersSlice = createSlice({
         [getCharacters.reducer]: (state, action) => {
             state.status = "failed";
             state.error = action.error.message
+        },
+        //get CharacterById 
+        [getCharacterById.fulfilled] : (state, action) => {
+            state.currentCharacter = action.payload
         }
     }
 });

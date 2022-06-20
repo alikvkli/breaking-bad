@@ -3,6 +3,7 @@ import About from "./pages/About";
 import Home from "./pages/Home";
 import Detail from "./pages/Detail";
 
+
 import Navigation from "./components/Navigation";
 import './App.css';
 
