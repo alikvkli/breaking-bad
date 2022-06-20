@@ -59,16 +59,17 @@ img{
   justify-content: center;
 
 }
+.navbar-nav a{
+  padding-right: 10px;
+  text-decoration: none;
+  color: #fff;
+  font-size: 16px;
+}
+
+.navbar-nav a:hover{
+  color: #ddd;
+}
 
 .load-more button{
   padding: 5px 10px 5px 10px;
-}
-nav ul{
-  display: flex;
-  list-style: none;
-  
-}
-nav ul li{
-  padding-right: 5px;
-  font-size: 16px;
 }
