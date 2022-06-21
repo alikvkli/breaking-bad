@@ -15,45 +15,48 @@ const Home = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        if(status === 'idle'){
+        if (status === 'idle') {
             dispatch(getCharacters());
         }
-    },[dispatch,status])
+    }, [dispatch, status])
 
     if (status === "loading") {
         return <Loading />;
     }
-    if(status === "failed" && error){
+    if (status === "failed" && error) {
         return <Error error={error} />;
     }
 
 
     return (
-        <div>
+        <div className='container'>
             <h1>Karakterler</h1>
-            {characters.map(character => (
-                <div key={character.char_id} className="character-card">
-                    <Link to={`/character/${character.char_id}`} key={character.char_id}>
-                        <img src={character.img} alt={character.name} />
-                    </Link>
-                    <div className="character-desc">
-                        <span>Karakter : {character.name}</span>
-                        <span>Takma ad : {character.nickname}</span>
-                        <span>Meslek :
-                            <ul>
-                                {character.occupation.map((item, index) => (
-                                    <li key={index}>{item}</li>
-                                ))}
-                            </ul>
-                        </span>
+            <div className='grid'>
+                {characters.map(character => (
+                    <div key={character.char_id} className="character-card">
+                        <Link to={`/character/${character.char_id}`} key={character.char_id}>
+                            <img src={character.img} alt={character.name} />
+                        </Link>
+                        <div className="character-desc">
+                            <span>Karakter : {character.name}</span>
+                            <span>Takma ad : {character.nickname}</span>
+                            <span>Meslek :
+                                <ul>
+                                    {character.occupation.map((item, index) => (
+                                        <li key={index}>{item}</li>
+                                    ))}
+                                </ul>
+                            </span>
+                        </div>
                     </div>
 
-                </div>
-            ))}
+                ))}
+            </div>
+
             {status === 'loading' && <Loading />}
             {hasNextPage && status !== 'loading' && (
                 <div className="load-more">
-                    <button onClick={() => { dispatch(getCharacters(nextPage)) }}>Devamını Göster ({nextPage})</button>
+                    <button className='btn btn-purple' onClick={() => { dispatch(getCharacters(nextPage)) }}>Devamını Göster ({nextPage})</button>
                 </div>
             )}
 

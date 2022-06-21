@@ -8,7 +8,7 @@ export const charactersSlice = createSlice({
         status: "idle",
         error: null,
         page: 0,
-        hasNextPage : true,
+        hasNextPage: true,
     },
     reducers: {},
     extraReducers: {
@@ -20,7 +20,7 @@ export const charactersSlice = createSlice({
             state.items = [...state.items, ...action.payload];
             state.status = "succeeded";
             state.page += 1;
-            if(action.payload.length < 12){
+            if (action.payload.length < 12) {
                 state.hasNextPage = false;
             }
         },
@@ -29,10 +29,9 @@ export const charactersSlice = createSlice({
             state.error = action.error.message
         },
         //get CharacterById 
-        [getCharacterById.fulfilled] : (state, action) => {
+        [getCharacterById.fulfilled]: (state, action) => {
             state.currentCharacter = action.payload
         }
     }
 });
-
 export default charactersSlice.reducer;

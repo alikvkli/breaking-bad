@@ -6,18 +6,14 @@ const Navigation = () => {
             <nav>
                 <ul>
                     <li>
-                        <Link to="">
-                            Anasayfa
-                        </Link>
+                        <Link to="" className='btn btn-primary'>Anasayfa</Link>
                     </li>
                     <li>
-                        <Link to="hakkimizda">
-                            Hakkımızda
-                        </Link>
+                        <Link to="hakkimizda" className='btn btn-primary'>Hakkımızda</Link>
                     </li>
                 </ul>
             </nav>
-            <Outlet/>
+            <Outlet />
         </div>
     );
 }

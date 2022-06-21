@@ -6,7 +6,8 @@ export const getCharacters = createAsyncThunk('characters/getCharacters', async 
     return res.data;
 });
 
-export const getCharacterById = createAsyncThunk('characters/getCharacterById', async(id) => {
+export const getCharacterById = createAsyncThunk('characters/getCharacterById', async (id) => {
     const res = await axios.get(`${process.env.REACT_APP_API_BASE_ENDPOINT}/characters/${id}`);
     return res.data[0];
 });
+

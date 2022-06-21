@@ -14,7 +14,7 @@ const Detail = () => {
 
 
     return (
-        <div>
+        <div className='container'>
             {
                 character &&
                 <div>
